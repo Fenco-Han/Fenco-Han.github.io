@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" class="loading">
+<html lang="zh-CN" class="loading">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -45,11 +45,17 @@
             <div class="main">
                 <div class="content animated fadeIn">
                     <div class="timeline">
-                      <h2 class="timeline-title">归档: 1篇</h2>
+                      <h2 class="timeline-title">归档: 2篇</h2>
                       
                       
                         
                           <h3 class="timeline-subtitle">2019</h3>
+                        
+                        <div class="timeline-item">
+                          <time>2019-11-04</time>
+                          <a target="_self" href="/2019/11/04/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
+                        </div>
+                      
                         
                         <div class="timeline-item">
                           <time>2019-11-04</time>
@@ -215,37 +221,5 @@
     }
 </script>
 
-
-    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-    <script>
-
-        var valine = new Valine();
-
-        function initValine(path) {
-            if (!path) path = window.location.pathname;
-            let language = 'en';
-            if (!language) {
-                language = 'en';
-            } else {
-                language = language.toLowerCase();
-            }
-            valine.init({
-                el: '#vcomments',
-                appId: 'QHCOIEBlyjBUMAjaE5ilzafk-gzGzoHsz',
-                appKey: 'ggeGwz8ypB9uiAIYSRH5T0PF',
-                notify: 'false',
-                verify: 'false',
-                avatar: 'mp',
-                placeholder: 'Leave your throughs behind~',
-                visitor: 'true',
-                path: path,
-                lang: language
-            });
-        }
-
-        $(document).ready(function () {
-            initValine();
-        });
-    </script>
 
 </html>
