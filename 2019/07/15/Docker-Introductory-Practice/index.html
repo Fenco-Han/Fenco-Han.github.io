@@ -1,0 +1,605 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Docker入门实践 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="TriDiamond Obsidian,"> 
+    <meta name="description" content="Java全栈工程师,
+$$
+前提：   虚拟机1  CentOS7:192.168.0.19（与物理机桥接方式）虚拟机2  CentOS7:192.168.0.21（与物理机桥接方式）本机：192.168.0.5 1.,"> 
+    <meta name="author" content="Fenco Han"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+    <link rel="stylesheet" href="/css/obsidian.css">
+    <link rel="stylesheet" href="/css/ball-atom.min.css">
+</head>
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Docker入门实践</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" target="_blank" rel="noopener" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" target="_blank" rel="noopener" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class= article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg);">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/运维"><b>「 </b>运维<b> 」</b></a>
+                
+                七月 15, 2019
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2019/07/15/Docker-Introductory-Practice/" title="Docker入门实践" class="">Docker入门实践</a></h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        15k
+                    </span>
+                    
+                    
+                        <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        13 mins.
+                    </span>
+                    
+                    
+                    
+                        <span id="busuanzi_container_page_pv">
+                            <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                            <span id="busuanzi_value_page_pv">0</span>
+                        </span>
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn slower">
+            <blockquote>
+<p>$$</p>
+<h1 id="前提：-虚拟机1-CentOS7-192-168-0-19（与物理机桥接方式）"><a href="#前提：-虚拟机1-CentOS7-192-168-0-19（与物理机桥接方式）" class="headerlink" title="前提：   虚拟机1  CentOS7:192.168.0.19（与物理机桥接方式）"></a>前提：   虚拟机1  CentOS7:192.168.0.19（与物理机桥接方式）</h1><h1 id="虚拟机2-CentOS7-192-168-0-21（与物理机桥接方式）"><a href="#虚拟机2-CentOS7-192-168-0-21（与物理机桥接方式）" class="headerlink" title="虚拟机2  CentOS7:192.168.0.21（与物理机桥接方式）"></a>虚拟机2  CentOS7:192.168.0.21（与物理机桥接方式）</h1><h1 id="本机：192-168-0-5-1-Docker安装与启动"><a href="#本机：192-168-0-5-1-Docker安装与启动" class="headerlink" title="本机：192.168.0.5 1. Docker安装与启动"></a>本机：192.168.0.5 1. Docker安装与启动</h1><p>$$</p>
+</blockquote>
+<h1 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h1><h2 id="1-1-安装Docker"><a href="#1-1-安装Docker" class="headerlink" title="1.1 安装Docker"></a>1.1 安装Docker</h2><p>​    (1)yum包更新到最新</p>
+<p>  （2）安装需要的软件包，yum-util提供yum-config-manager功能，另外两个是devicemapper屈都依赖的</p>
+<blockquote>
+<p>​       </p>
+<pre><code> sudo yum install -y  yum-utils devicemapper-persistent-data lvm2</code></pre></blockquote>
+<p>​    (3) 设置yum源为阿里云</p>
+<blockquote>
+<p>​        <code>sudo yum-coonfig-manager --add-repo</code>        </p>
+<p>[]: <a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></p>
+</blockquote>
+<p>​    (4) 安装docker</p>
+<blockquote>
+<p>​        <code>sudo yum install docker-ce</code></p>
+</blockquote>
+<p>​    (5) 查看版本</p>
+<blockquote>
+<p>​        <code>docker -v</code></p>
+</blockquote>
+<h2 id="1-2-设置ustc的镜像"><a href="#1-2-设置ustc的镜像" class="headerlink" title="1.2 设置ustc的镜像"></a>1.2 设置ustc的镜像</h2><p>​    (1) 编辑该文件</p>
+<blockquote>
+<p>​        vi /etc/docker/daemon.json</p>
+</blockquote>
+<p>​    (2) 该文件中输入如下内容：</p>
+<blockquote>
+<p>​       </p>
+<pre><code> {
+
+​        “registry-mirrors”:[&quot;https://docker.mirrors.ustc.edu.cn&quot;]
+
+​        }</code></pre></blockquote>
+<h2 id="1-3-Docker的启动与停止"><a href="#1-3-Docker的启动与停止" class="headerlink" title="1.3 Docker的启动与停止"></a>1.3 Docker的启动与停止</h2><p>​      <strong>systemctl</strong> 命令是系统服务管理器指令</p>
+<blockquote>
+<p>​        启动docker</p>
+<p>​            systemctl start docker</p>
+<p>​        停止docker</p>
+<p>​            systemctl stop docker</p>
+<p>​        重启docker</p>
+<p>​            systemctl restart docker</p>
+<p>​        查看docker状态</p>
+<p>​            systemctl status docker</p>
+<p>​        开机启动</p>
+<p>​            systemctl enable docker</p>
+<p>​        查看docker概要信息</p>
+<p>​            docker  info</p>
+</blockquote>
+<h1 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2. 常用命令"></a>2. 常用命令</h1><h2 id="2-1-镜像相关命令"><a href="#2-1-镜像相关命令" class="headerlink" title="2.1 镜像相关命令"></a>2.1 镜像相关命令</h2><h3 id="2-1-1-查看镜像"><a href="#2-1-1-查看镜像" class="headerlink" title="2.1.1 查看镜像"></a>2.1.1 查看镜像</h3><blockquote>
+<p>​        docker images</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/17169295-f93cb5e0123a841f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="2-1-2-搜索镜像"><a href="#2-1-2-搜索镜像" class="headerlink" title="2.1.2 搜索镜像"></a>2.1.2 搜索镜像</h3><blockquote>
+<p>​        docker search 镜像名称</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/17169295-8b9d9f04b51c22a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="2-1-3-拉取镜像"><a href="#2-1-3-拉取镜像" class="headerlink" title="2.1.3 拉取镜像"></a>2.1.3 拉取镜像</h3><blockquote>
+<p>​        docker pull  镜像名称</p>
+</blockquote>
+<p>​        例如  docker  pull  centos:7</p>
+<h3 id="2-1-4-删除镜像"><a href="#2-1-4-删除镜像" class="headerlink" title="2.1.4 删除镜像"></a>2.1.4 删除镜像</h3><blockquote>
+<p>​        docker  rmi  镜像ID</p>
+</blockquote>
+<p>​        删除所有镜像：docker rmi  ‘docker  images  -q’</p>
+<h2 id="2-2-容器相关命令"><a href="#2-2-容器相关命令" class="headerlink" title="2.2 容器相关命令"></a>2.2 容器相关命令</h2><h2 id="2-2-1-查看容器"><a href="#2-2-1-查看容器" class="headerlink" title="2.2.1 查看容器"></a>2.2.1 查看容器</h2><blockquote>
+<p>​        查看正在运行容器：  docker  ps</p>
+<p>​        查看所有容器： docker  ps  -a</p>
+<p>​        查看最后一次运行容器： docker ps -1</p>
+<p>​        查看停止容器： docker ps -f status=exited</p>
+</blockquote>
+<h3 id="2-2-2-创建与启动容器"><a href="#2-2-2-创建与启动容器" class="headerlink" title="2.2.2 创建与启动容器"></a>2.2.2 创建与启动容器</h3><blockquote>
+<p>​        创建容器命令：docker run</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/17169295-f47a717be5859766.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>​        (1) 交互式方式创建容器</p>
+<blockquote>
+<p>​            docker  run  -it  –name=容器名称  镜像名称：标签  /bin/bas</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/17169295-08c91e9104339b45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>​              此时，创建完毕后直接进入。</p>
+<p>​              进入容器后exit退出，容器状态自动变为exited.</p>
+<p>​        (2) 守护式方式创建容器</p>
+<blockquote>
+<p>​                docker  run  -di  –name=容器名称  镜像名称：标签</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/17169295-31bd00e3d1c6470b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>​                此时，创建完毕后未进入容器</p>
+<p>​                登陆守护方式容器：docker exec -it 容器名称（或者ID） /bin/bash</p>
+<p>​                注意：本次创建容器时，即使上面交互式方式创建的容器mycentos已经关闭，此时仍然不能本次容器也为mycentos!!!</p>
+<h3 id="2-2-3-停止与启动容器"><a href="#2-2-3-停止与启动容器" class="headerlink" title="2.2.3 停止与启动容器"></a>2.2.3 停止与启动容器</h3><blockquote>
+<p>​        停止容器：docker  stop  容器名称（或者ID）</p>
+<p>​        启动容器：docker  start  容器名称（或者ID）</p>
+</blockquote>
+<h3 id="2-2-4-文件拷贝"><a href="#2-2-4-文件拷贝" class="headerlink" title="2.2.4 文件拷贝"></a>2.2.4 文件拷贝</h3><blockquote>
+<p>将文件拷贝到容器内：docker  cp  需要拷贝文件或目录  容器名称:容器目录</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/17169295-1c82c75233452cd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<blockquote>
+<p>将文件拷贝出容器外：docker  cp  容器名称:容器目录  需要拷贝文件或目录</p>
+</blockquote>
+<h3 id="2-2-5-目录挂载"><a href="#2-2-5-目录挂载" class="headerlink" title="2.2.5 目录挂载"></a>2.2.5 目录挂载</h3><p><img src="https://upload-images.jianshu.io/upload_images/17169295-be3d71e849f42d3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="2-2-6-查看容器IP地址"><a href="#2-2-6-查看容器IP地址" class="headerlink" title="2.2.6 查看容器IP地址"></a>2.2.6 查看容器IP地址</h3><blockquote>
+<p>​            docker  inspect 容器名称（或者ID）</p>
+</blockquote>
+<p>直接查找到IP地址方式：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/17169295-08d215cdd9404acc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="2-2-7-删除容器"><a href="#2-2-7-删除容器" class="headerlink" title="2.2.7 删除容器"></a>2.2.7 删除容器</h3><blockquote>
+<p>​        docker  rm  容器名称（或者ID）</p>
+</blockquote>
+<p>​        <strong>注意：1. 与删除镜像区别（删除镜像：docker  rmi  镜像ID）</strong></p>
+<p>​                  <strong>2. 在删除镜像时，要把对应全部创建的容器删除才可以删除镜像！</strong></p>
+<h1 id="3-应用部署"><a href="#3-应用部署" class="headerlink" title="3. 应用部署"></a>3. 应用部署</h1><h2 id="3-1-MySQL部署"><a href="#3-1-MySQL部署" class="headerlink" title="3.1 MySQL部署"></a>3.1 MySQL部署</h2><p>​    （1） 拉取mysql镜像</p>
+<blockquote>
+<p>​                docker  pull centos/mysql-57-centos7</p>
+</blockquote>
+<p>​    （2） 创建容器</p>
+<blockquote>
+<p>​                docker  run  -di  –name=tensquare_mysql  -p  33306:3306  -e  MYSQL_PASSWORD=123456  mysql</p>
+</blockquote>
+<p>​                -p  代表端口映射，格式为  宿主机映射端口：容器运行端口</p>
+<p>​                -e 代表添加环境变量 MYSQL_ROOT_PASSWORD 是root用户的密码</p>
+<p>​    （3） 进入mysql容器</p>
+<blockquote>
+<p>​                  docker  exec  -it  tensquare_mysql  /bin/bash</p>
+</blockquote>
+<p>​    （4） 登陆mysql</p>
+<blockquote>
+<p>​                mysql  -u  root  -p</p>
+</blockquote>
+<p>​    （5） 远程登陆mysql</p>
+<p>​                连接宿主机IP并指定端口为33306，这样就可以操作容器的3306端口。</p>
+<h2 id="3-2-tomcat部署"><a href="#3-2-tomcat部署" class="headerlink" title="3.2 tomcat部署"></a>3.2 tomcat部署</h2><p>​    （1） 拉取镜像</p>
+<blockquote>
+<p>​                    docker  pull  tomcat:7-jre7</p>
+</blockquote>
+<p>​        (2) 创建容器</p>
+<p>​                    创建容器  -p 表示地址映射</p>
+<blockquote>
+<p>​                    docker  run  -di  –name=mytomcat  -p  9000:8080  -v /usr/local/webapps:/usr/local/tomcat/webapps  tomcat:7-jre7</p>
+</blockquote>
+<p>​      （3） 进入mysql容器</p>
+<blockquote>
+<p>​                    docker  exec  -it  mytomcat  /bin/bash</p>
+</blockquote>
+<p>​      （4） 远程访问：192.168.0.19:9000/index.jsp</p>
+<h2 id="3-3-Nginx部署"><a href="#3-3-Nginx部署" class="headerlink" title="3.3 Nginx部署"></a>3.3 Nginx部署</h2><p>​        （1） 拉取镜像</p>
+<blockquote>
+<p>​                    docker  pull  nginx</p>
+</blockquote>
+<p>​        (2) 创建容器</p>
+<blockquote>
+<p>​                    创建容器  -p 表示地址映射</p>
+<p>​                    docker  run  -di  –name=mynginx  -p  80:80  nginx</p>
+</blockquote>
+<h2 id="3-4-Redis部署"><a href="#3-4-Redis部署" class="headerlink" title="3.4 Redis部署"></a>3.4 Redis部署</h2><p>​        （1） 拉取镜像</p>
+<blockquote>
+<p>​                    docker  pull redis</p>
+</blockquote>
+<p>​          (2) 创建容器</p>
+<blockquote>
+<p>​                    创建容器  -p 表示地址映射</p>
+<p>​                    docker  run  -di  –name=myredis  -p  6379:6379  redis</p>
+</blockquote>
+<h1 id="4-迁移与备份"><a href="#4-迁移与备份" class="headerlink" title="4. 迁移与备份"></a>4. 迁移与备份</h1><h2 id="4-1-容器保存为镜像"><a href="#4-1-容器保存为镜像" class="headerlink" title="4.1  容器保存为镜像"></a>4.1  容器保存为镜像</h2><blockquote>
+<p>​            docker  commit  mynginx  mynginx_i</p>
+</blockquote>
+<h2 id="4-2-镜像备份"><a href="#4-2-镜像备份" class="headerlink" title="4.2  镜像备份"></a>4.2  镜像备份</h2><blockquote>
+<p>​            docker  save  -o  mynginx.tar  mynginx_i</p>
+</blockquote>
+<h3 id="4-3-镜像恢复与迁移"><a href="#4-3-镜像恢复与迁移" class="headerlink" title="4.3  镜像恢复与迁移"></a>4.3  镜像恢复与迁移</h3><blockquote>
+<p>​            docker  load  -i  mynginx.tar</p>
+</blockquote>
+<p>​            -i  输入的文件</p>
+<blockquote>
+<p>​            docker  images  可看到镜像已恢复</p>
+</blockquote>
+<h1 id="5-Dockerfile"><a href="#5-Dockerfile" class="headerlink" title="5. Dockerfile"></a>5. Dockerfile</h1><h2 id="5-1-什么是Dockerfile"><a href="#5-1-什么是Dockerfile" class="headerlink" title="5.1 什么是Dockerfile"></a>5.1 什么是Dockerfile</h2><p><img src="https://upload-images.jianshu.io/upload_images/17169295-a222a077dc4601f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h2 id="5-2-常用命令"><a href="#5-2-常用命令" class="headerlink" title="5.2 常用命令"></a>5.2 常用命令</h2><p><img src="https://upload-images.jianshu.io/upload_images/17169295-6bf066c4b2fcff21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="5-3-使用脚本创建镜像"><a href="#5-3-使用脚本创建镜像" class="headerlink" title="5.3 使用脚本创建镜像"></a>5.3 使用脚本创建镜像</h2><p>​        （1）创建目录</p>
+<blockquote>
+<p>​                mkdir -p /usr/local/dockerjdk8</p>
+</blockquote>
+<p>​        （2）下载jdk-8u171-linux-x64.tar.gz并上传到服务器中/usr/local/dockerjdk8目录</p>
+<p>​        （3）在dockerjdk8目录下创建文件Dockerfile    vi  Dockerfile</p>
+<blockquote>
+<p>​                    #依赖镜像名称和ID</p>
+<p>​                    FROM centos7</p>
+<p>​                    #指定镜像创建者</p>
+<p>​                    MAINTAINER FENCO</p>
+<p>​                    #切换工作目录</p>
+<p>​                    WORKDIR  /usr</p>
+<p>​                    RUN  mkdir  /usr/local/java</p>
+<p>​                    #ADD  是相对路径jar,把java添加到容器</p>
+<p>​                    ADD  jdk-8u171-linux-x64.tar.gz  /usr/local/java/</p>
+</blockquote>
+<blockquote>
+<p>​                    #配置java环境变量</p>
+<p>​                    ENV  JAVA_HOME   /usr/local/java/jdk1.8.0_171</p>
+<p>​                    ENV  JRE_HOME   $JAVA_HOME/jre</p>
+<p>​                    ENV  CLASSPATH   $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$CLASSPATH</p>
+<p>​                    ENV  PATH  $JAVA_HOME/bin:$PATH</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/17169295-077f15b821721ec0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>​                            <strong>注意：由于创建jdk1.8镜像用到了docker.io/centos镜像，所以必须保证本地有该镜像。</strong></p>
+<p>​             (4) 执行命令构建镜像</p>
+<blockquote>
+<p>​                       在dockerjdk8目录下执行：    docker   build  -t=’jdk1.8’  .           最后面的点，表示该根目录</p>
+</blockquote>
+<p>​            (5) 查看镜像是否建立完成</p>
+<blockquote>
+<p>​                        docker  images</p>
+</blockquote>
+<h1 id="6-Docker私有仓库"><a href="#6-Docker私有仓库" class="headerlink" title="6. Docker私有仓库"></a>6. Docker私有仓库</h1><h2 id="6-1-私有仓库的搭建及配置"><a href="#6-1-私有仓库的搭建及配置" class="headerlink" title="6.1 私有仓库的搭建及配置"></a>6.1 私有仓库的搭建及配置</h2><p>​    （1） 拉取私有仓库镜像</p>
+<blockquote>
+<p>​        docker pull registry</p>
+</blockquote>
+<p>​      (2)  启动私有仓库容器</p>
+<blockquote>
+<p>​            docker  run  -di  –name=registry  -p  5000:5000  registry</p>
+</blockquote>
+<p>​     (3) 用浏览器访问：<a href="http://192.168.0.19:5000/v2/_catalog看到{“repositories”:[]}表示私有仓库搭建成功内容为空。" target="_blank" rel="noopener">http://192.168.0.19:5000/v2/_catalog看到{“repositories”:[]}表示私有仓库搭建成功内容为空。</a></p>
+<p>  （4）修改daemon.json</p>
+<blockquote>
+<p>​            vi  /etc/docker/daemon.json</p>
+<p>​            添加以下内容并保存退出。</p>
+<p>​            {“insecure-registries”:[“192.168.0.19:5000”]}    此步用于让docker信任私有仓库地址</p>
+</blockquote>
+<p>  （5） 重启docker服务</p>
+<blockquote>
+<p>​            systemctl restart  docker</p>
+</blockquote>
+<h2 id="6-2-镜像的上传及下载到私有仓库"><a href="#6-2-镜像的上传及下载到私有仓库" class="headerlink" title="6.2 镜像的上传及下载到私有仓库"></a>6.2 镜像的上传及下载到私有仓库</h2><h3 id="6-2-1镜像的上传"><a href="#6-2-1镜像的上传" class="headerlink" title="6.2.1镜像的上传"></a>6.2.1镜像的上传</h3><p>​    （1） 标记次镜像为私有仓库的镜像</p>
+<blockquote>
+<p>​                docker tag jdk1.8 192.168.0.19:5000/jdk1.8</p>
+</blockquote>
+<p>​      (2) 上传标记镜像</p>
+<blockquote>
+<p>​                首先，上一步重启了docker服务，所以里面的registry容器也需要启动下。</p>
+<p>​                然后执行上传：docker  push  192.168.0.19:5000/jdk1.8</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/17169295-4e37943897353c2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><h3 id="6-2-2-镜像的下载"><a href="#6-2-2-镜像的下载" class="headerlink" title="6.2.2 镜像的下载"></a>6.2.2 镜像的下载</h3><p><strong>在另外一台虚拟机中安装docker（192.168.0.21）</strong></p>
+<p>​    （1）修改daemon.json</p>
+<blockquote>
+<p>​                vi  /etc/docker/daemon.json</p>
+<p>​                添加以下内容并保存退出。</p>
+<p>​                {“insecure-registries”:[“192.168.0.19:5000”]}    此步用于让docker信任私有仓库地址</p>
+</blockquote>
+<p>​    （2） 重启docker服务</p>
+<blockquote>
+<p>​                systemctl restart  docker</p>
+</blockquote>
+<p>​     (3) 下载标记镜像</p>
+<blockquote>
+<p>​                然后执行下载：docker  pull  192.168.0.19:5000/jdk1.8</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='/statics/Canon.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+                
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='ec894e2b66f752e8b7fb'
+        data-cs='3ccc2e92bb350688fe2c2dc2930189b62622bfb1'
+        data-r='blog-comments'
+        data-o='TriDiamond'
+        data-a='TriDiamond'
+        data-d=''
+    >留言</div>
+
+
+            
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://res.cloudinary.com/tridiamond/image/upload/v1573019751/TriDiamond_logo_ui_xeublz.jpg" height=300 width=300></img>
+                    <p>Fenco Han</p>
+                    <span>Think like an artist, develop like an artisan</span>
+                    <dl>
+                        <dd><a href="https://github.com/Fenco-Han" target="_blank"><span class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="https://twitter.com/Fenco" target="_blank"><span class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="https://stackoverflow.com/users/12349469/han-pengfei" target="_blank"><span class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">6 <p>文章</p></a></li>
+                    <li><a href="/categories">3 <p>分类</p></a></li>
+                    <li><a href="/tags">5 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前提：-虚拟机1-CentOS7-192-168-0-19（与物理机桥接方式）"><span class="toc-number">1.</span> <span class="toc-text">前提：   虚拟机1  CentOS7:192.168.0.19（与物理机桥接方式）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机2-CentOS7-192-168-0-21（与物理机桥接方式）"><span class="toc-number">2.</span> <span class="toc-text">虚拟机2  CentOS7:192.168.0.21（与物理机桥接方式）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本机：192-168-0-5-1-Docker安装与启动"><span class="toc-number">3.</span> <span class="toc-text">本机：192.168.0.5 1. Docker安装与启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-准备工作"><span class="toc-number">4.</span> <span class="toc-text">1.准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-安装Docker"><span class="toc-number">4.1.</span> <span class="toc-text">1.1 安装Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-设置ustc的镜像"><span class="toc-number">4.2.</span> <span class="toc-text">1.2 设置ustc的镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-Docker的启动与停止"><span class="toc-number">4.3.</span> <span class="toc-text">1.3 Docker的启动与停止</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-常用命令"><span class="toc-number">5.</span> <span class="toc-text">2. 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-镜像相关命令"><span class="toc-number">5.1.</span> <span class="toc-text">2.1 镜像相关命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-查看镜像"><span class="toc-number">5.1.1.</span> <span class="toc-text">2.1.1 查看镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-搜索镜像"><span class="toc-number">5.1.2.</span> <span class="toc-text">2.1.2 搜索镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-拉取镜像"><span class="toc-number">5.1.3.</span> <span class="toc-text">2.1.3 拉取镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-4-删除镜像"><span class="toc-number">5.1.4.</span> <span class="toc-text">2.1.4 删除镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-容器相关命令"><span class="toc-number">5.2.</span> <span class="toc-text">2.2 容器相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-1-查看容器"><span class="toc-number">5.3.</span> <span class="toc-text">2.2.1 查看容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-创建与启动容器"><span class="toc-number">5.3.1.</span> <span class="toc-text">2.2.2 创建与启动容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-停止与启动容器"><span class="toc-number">5.3.2.</span> <span class="toc-text">2.2.3 停止与启动容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-文件拷贝"><span class="toc-number">5.3.3.</span> <span class="toc-text">2.2.4 文件拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-5-目录挂载"><span class="toc-number">5.3.4.</span> <span class="toc-text">2.2.5 目录挂载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-6-查看容器IP地址"><span class="toc-number">5.3.5.</span> <span class="toc-text">2.2.6 查看容器IP地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-7-删除容器"><span class="toc-number">5.3.6.</span> <span class="toc-text">2.2.7 删除容器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-应用部署"><span class="toc-number">6.</span> <span class="toc-text">3. 应用部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-MySQL部署"><span class="toc-number">6.1.</span> <span class="toc-text">3.1 MySQL部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-tomcat部署"><span class="toc-number">6.2.</span> <span class="toc-text">3.2 tomcat部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-Nginx部署"><span class="toc-number">6.3.</span> <span class="toc-text">3.3 Nginx部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-Redis部署"><span class="toc-number">6.4.</span> <span class="toc-text">3.4 Redis部署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-迁移与备份"><span class="toc-number">7.</span> <span class="toc-text">4. 迁移与备份</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-容器保存为镜像"><span class="toc-number">7.1.</span> <span class="toc-text">4.1  容器保存为镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-镜像备份"><span class="toc-number">7.2.</span> <span class="toc-text">4.2  镜像备份</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-镜像恢复与迁移"><span class="toc-number">7.2.1.</span> <span class="toc-text">4.3  镜像恢复与迁移</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Dockerfile"><span class="toc-number">8.</span> <span class="toc-text">5. Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-什么是Dockerfile"><span class="toc-number">8.1.</span> <span class="toc-text">5.1 什么是Dockerfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-常用命令"><span class="toc-number">8.2.</span> <span class="toc-text">5.2 常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">8.3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-使用脚本创建镜像"><span class="toc-number">8.4.</span> <span class="toc-text">5.3 使用脚本创建镜像</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Docker私有仓库"><span class="toc-number">9.</span> <span class="toc-text">6. Docker私有仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-私有仓库的搭建及配置"><span class="toc-number">9.1.</span> <span class="toc-text">6.1 私有仓库的搭建及配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-镜像的上传及下载到私有仓库"><span class="toc-number">9.2.</span> <span class="toc-text">6.2 镜像的上传及下载到私有仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-1镜像的上传"><span class="toc-number">9.2.1.</span> <span class="toc-text">6.2.1镜像的上传</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-1"><span class="toc-number">9.2.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-2-镜像的下载"><span class="toc-number">9.2.3.</span> <span class="toc-text">6.2.2 镜像的下载</span></a></li></ol></li></ol></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2019
+        <span class="gradient-text">
+            Fenco Han
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.2" target="_blank" rel="noopener">v1.4.2</a></small>
+    </p>
+</footer>
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+    <script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+
+
+    <script src="/js/busuanzi.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($('span[id^="busuanzi_"]').length) {
+                initialBusuanzi();
+            }
+        });
+    </script>
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-149874671-1');
+    </script>
+
+
+
+
+
+<script>
+    function initialTyped () {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ["Think like an artist, develop like an artisan", "艺术家思维去思考问题，工匠创造精神去开发"],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+
+
+</html>
