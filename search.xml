@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>02训练环境设置，编码技巧，Code Style及时间空间复杂度</title>
+      <link href="/2019/11/21/algorithm-learning02/"/>
+      <url>/2019/11/21/algorithm-learning02/</url>
+      
+        <content type="html"><![CDATA[<h1 id="训练环境的设置，编码技巧和Code-Style"><a href="#训练环境的设置，编码技巧和Code-Style" class="headerlink" title="训练环境的设置，编码技巧和Code Style"></a>训练环境的设置，编码技巧和Code Style</h1><h2 id="电脑配置"><a href="#电脑配置" class="headerlink" title="电脑配置"></a>电脑配置</h2><ul><li>搜索引擎默认Google</li><li>Terminal<ul><li>Mac:iTerm2 +zsh</li><li>Windows:Microsoft new terminal</li></ul></li><li>LeetCode plugin (vscode &amp; IntelliJ)</li><li><a href="http://vscodethemes.com/" target="_blank" rel="noopener">http://vscodethemes.com/</a></li><li>骚操作<ul><li><a href="https://juejin.im/entry/587e0f2f570c352201113e14" target="_blank" rel="noopener">https://juejin.im/entry/587e0f2f570c352201113e14</a></li><li><a href="https://juejin.im/post/5ce1365151882525ff28ed47" target="_blank" rel="noopener">https://juejin.im/post/5ce1365151882525ff28ed47</a></li></ul></li></ul><h2 id="Code-Style"><a href="#Code-Style" class="headerlink" title="Code Style"></a>Code Style</h2><ul><li>Google Code Style</li></ul><h2 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h2><ul><li>leetcode-cn.com(国内版)和题</li><li>leetcode.com（国外版）和Discuss border</li></ul><h2 id="指法和小操作"><a href="#指法和小操作" class="headerlink" title="指法和小操作"></a>指法和小操作</h2><ul><li>home , end (行头，行尾)</li><li>word单词，选单词，选整行</li><li>IDE的自动补全</li><li>Top tips for <IDE-name></li></ul><p><code>养成使用快捷键的习惯，提高编码效率</code></p><h2 id="自顶向下的编程方式"><a href="#自顶向下的编程方式" class="headerlink" title="自顶向下的编程方式"></a>自顶向下的编程方式</h2><p><a href="https://markhneedham.com/blog/2008/09/15/clean-code-book-review/" target="_blank" rel="noopener">https://markhneedham.com/blog/2008/09/15/clean-code-book-review/</a></p><hr><h1 id="时间复杂度和空间复杂度"><a href="#时间复杂度和空间复杂度" class="headerlink" title="时间复杂度和空间复杂度"></a>时间复杂度和空间复杂度</h1><h2 id="Big-O-notation"><a href="#Big-O-notation" class="headerlink" title="Big O notation"></a>Big O notation</h2><ul><li>O（1）:常数复杂度</li><li>O（log n）:对数复杂度</li><li>O（n）：线性时间复杂度</li><li>O（n^2）:N 平方</li><li>O（n^3）:N 立方</li><li>O（2^n）:指数O（n!）:阶乘</li></ul><p><code>注意：只看最高复杂度的运算。</code></p><pre><code class="java">O(1):    int n = 100;    System.out.println(&quot;hello &quot; + n);O(1):        int n = 1000;    System.out.println(&quot;hello &quot; + n);    System.out.println(&quot;hi &quot; + n);    System.out.println(&quot;helo &quot; + n);O(N):    for(int i = 1; i&lt;= n; i++) {        System.out.println(&quot;hello &quot; + i);    }O(N^2):    for (int i = 1; i&lt;=n; i++) {        for (int j = 1; j&lt;=n; j++) {            System.out.println(&quot;hello &quot; + i + j);        }    }O(log(n)):    for (int i = 1; i &lt; n; i = i * 2) {        System.out.println(&quot;hello &quot; + i);    }O(k^n):    int fib(int n) {        if(n &lt;=2 ) return n;        return fib(n - 1) + fib(n - 2);     }</code></pre><h2 id="Master-Theorem-主定理"><a href="#Master-Theorem-主定理" class="headerlink" title="Master Theorem(主定理)"></a>Master Theorem(主定理)</h2><img src="https://s2.ax1x.com/2019/11/21/MoMpuR.png" alt="MoMpuR.png" border="0" /><h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><ul><li><p>二叉树遍历-前序，中序，后序：时间复杂度是多少？</p><p>O（n）,n 为节点总数</p></li><li><p>图的遍历：时间复杂度是多少？</p><p>O（n）,n 为节点总数</p></li><li><p>搜索算法：DFS深度优先算法、BFS广度优先算法时间复杂度是多少？</p><p>O（n）,n 为节点总数</p></li><li><p>二分查找：时间复杂度是多少？</p><p>O（log n)</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>01数据结构与算法概览</title>
+      <link href="/2019/11/21/algorithm-learning01/"/>
+      <url>/2019/11/21/algorithm-learning01/</url>
+      
+        <content type="html"><![CDATA[<h3 id="推荐书籍：《异类：不一样的成功启示》"><a href="#推荐书籍：《异类：不一样的成功启示》" class="headerlink" title="推荐书籍：《异类：不一样的成功启示》"></a>推荐书籍：<code>《异类：不一样的成功启示》</code></h3><p>精通一个领域：</p><ul><li>切碎知识点</li><li>刻意练习（五毒神掌，练习弱项）</li><li>反馈<ul><li>主动反馈</li></ul></li></ul><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><ul><li>一维：<ul><li>基础：数组array (String),链表 linked list</li><li>高级：栈 stack, 队列 queue, 双端队列 deque, 集合 set , 映射 map(hash or map)</li></ul></li><li>二维：<ul><li>基础：数tree  ,图 graph</li><li>高级：二叉搜索树 binary search tree(red-black tree红黑树,AVL)，堆 heep， 并查集 disjoint set,字典树 Trie</li></ul></li><li>特殊：<ul><li>位运算 Bitwise, 布隆过滤器 BloomFilter</li><li>LRU Cache缓存</li></ul></li></ul><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ul><li>if-else,switch –&gt;branch</li><li>for,while loop—&gt;iteration</li><li>递归 Recursion(Divide &amp; Conquer, Backtrace)</li><li>搜索 Search:  深度优先搜索(Depth first search) ,广度优先搜索（Breadth first search）</li><li>动态规划 Dynamic Programming</li><li>二分查找Binary Search</li><li>贪心算法 Greedy</li><li>数学 Math ,几何 Geometry </li></ul><p>注意：<code>刻意练习（五毒神掌）</code></p><h3 id="切题四件套"><a href="#切题四件套" class="headerlink" title="切题四件套"></a>切题四件套</h3><ul><li>审题清晰</li><li>想出可能的解法们<ul><li>比较，加强</li></ul></li><li>多写</li><li>测试</li></ul><h3 id="五毒神掌"><a href="#五毒神掌" class="headerlink" title="五毒神掌"></a>五毒神掌</h3><h4 id="刷题第一遍"><a href="#刷题第一遍" class="headerlink" title="刷题第一遍"></a>刷题第一遍</h4><ul><li>5分钟：读题 + 思考</li><li>直接看解法：注意！多解法，比较解法优劣。</li><li><code>背诵，默写</code>解法。</li></ul><h4 id="刷题第二遍"><a href="#刷题第二遍" class="headerlink" title="刷题第二遍"></a>刷题第二遍</h4><ul><li>马上自己写—&gt;LeetCode提交</li><li>多种解法比较，体会–&gt;优化!</li></ul><h4 id="刷题第三遍"><a href="#刷题第三遍" class="headerlink" title="刷题第三遍"></a>刷题第三遍</h4><ul><li>一天之后，重复做原题。</li><li>不同解法的熟练程度—&gt;专项练习</li></ul><h4 id="刷题第四遍"><a href="#刷题第四遍" class="headerlink" title="刷题第四遍"></a>刷题第四遍</h4><ul><li>一个月之后，重复做原题。</li></ul><h4 id="刷题第五遍"><a href="#刷题第五遍" class="headerlink" title="刷题第五遍"></a>刷题第五遍</h4><ul><li>面试前一周恢复性训练</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JAVA开发自学之路</title>
       <link href="/2019/11/18/introduction-to-java/"/>
       <url>/2019/11/18/introduction-to-java/</url>
