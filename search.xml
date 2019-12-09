@@ -4,6 +4,74 @@
   
     
     <entry>
+      <title>P1TwoSum</title>
+      <link href="/2019/12/09/P1TwoSum/"/>
+      <url>/2019/12/09/P1TwoSum/</url>
+      
+        <content type="html"><![CDATA[<h1 id="P1两数之和"><a href="#P1两数之和" class="headerlink" title="P1两数之和"></a>P1两数之和</h1><p>给定一个整数数组 <code>nums</code> 和一个目标值 <code>target</code>，请你在该数组中找出和为目标值的那 <strong>两个</strong> 整数，并返回他们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p><p><strong>示例:</strong></p><pre><code class="java">给定 nums = [2, 7, 11, 15], target = 9因为 nums[0] + nums[1] = 2 + 7 = 9所以返回 [0, 1]</code></pre><p>Related Topics：数组，哈希表</p><h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>暴力法：遍历每一个元素，运行用两层for循环，进行判断。</p><pre><code class="java">class Solution {    public int[] twoSum(int[] nums, int target) {        for (int i = 0; i &lt; nums.length; i++) {            for (int j = i + 1; j &lt; nums.length; j++) {                if (nums[j] = target - nums[i]) {                    return new int[] {i,j};                }            }        }         throw new IllegalArgumentException(&quot;No two sum solution&quot;);    }}//总结：时间复杂度为：O（n^2）</code></pre><h2 id="方法二：推荐"><a href="#方法二：推荐" class="headerlink" title="方法二：推荐"></a>方法二：<code>推荐</code></h2><p>使用一遍哈希表</p><pre><code class="java">class Solution {        public int[] twoSum(int[] nums, int target) {            //声明一个HashMap            Map&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();            for (int i = 0; i &lt; nums.length; i++) {       //现将所有能够满足target - num[i],找出，然后再去之后保存的map中查询。                int complement = target - nums[i];                //找到所有满足complement且与i不冲突的                if (map.containsKey(complement) &amp;&amp; map.get(complement) != i) {                    return new int[] {i,map.get(complement)};                }                //利用map将数组元素与索引一一对应                map.put(nums[i], i);            }        }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Array </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>04移动零</title>
+      <link href="/2019/11/22/algorithm-learning04/"/>
+      <url>/2019/11/22/algorithm-learning04/</url>
+      
+        <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。</p><p>示例:</p><p>​       输入: [0,1,0,3,12]</p><p>​       输出: [1,3,12,0,0]</p><p>说明:</p><ol><li>必须在原数组上操作，不能拷贝额外的数组。</li><li>尽量减少操作次数。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 工具 </category>
+          
+          <category> 运维 </category>
+          
+          <category> 框架 </category>
+          
+          <category> 数据库 </category>
+          
+          <category> 架构 </category>
+          
+          <category> 源码 </category>
+          
+          <category> 积累 </category>
+          
+          <category> 思想 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Tag1 </tag>
+            
+            <tag> Tag2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>02训练环境设置，编码技巧，Code Style及时间空间复杂度</title>
       <link href="/2019/11/21/algorithm-learning02/"/>
       <url>/2019/11/21/algorithm-learning02/</url>
@@ -27,7 +95,7 @@
       <link href="/2019/11/21/algorithm-learning01/"/>
       <url>/2019/11/21/algorithm-learning01/</url>
       
-        <content type="html"><![CDATA[<h3 id="推荐书籍：《异类：不一样的成功启示》"><a href="#推荐书籍：《异类：不一样的成功启示》" class="headerlink" title="推荐书籍：《异类：不一样的成功启示》"></a>推荐书籍：<code>《异类：不一样的成功启示》</code></h3><p>精通一个领域：</p><ul><li>切碎知识点</li><li>刻意练习（五毒神掌，练习弱项）</li><li>反馈<ul><li>主动反馈</li></ul></li></ul><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><ul><li>一维：<ul><li>基础：数组array (String),链表 linked list</li><li>高级：栈 stack, 队列 queue, 双端队列 deque, 集合 set , 映射 map(hash or map)</li></ul></li><li>二维：<ul><li>基础：数tree  ,图 graph</li><li>高级：二叉搜索树 binary search tree(red-black tree红黑树,AVL)，堆 heep， 并查集 disjoint set,字典树 Trie</li></ul></li><li>特殊：<ul><li>位运算 Bitwise, 布隆过滤器 BloomFilter</li><li>LRU Cache缓存</li></ul></li></ul><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ul><li>if-else,switch –&gt;branch</li><li>for,while loop—&gt;iteration</li><li>递归 Recursion(Divide &amp; Conquer, Backtrace)</li><li>搜索 Search:  深度优先搜索(Depth first search) ,广度优先搜索（Breadth first search）</li><li>动态规划 Dynamic Programming</li><li>二分查找Binary Search</li><li>贪心算法 Greedy</li><li>数学 Math ,几何 Geometry </li></ul><p>注意：<code>刻意练习（五毒神掌）</code></p><h3 id="切题四件套"><a href="#切题四件套" class="headerlink" title="切题四件套"></a>切题四件套</h3><ul><li>审题清晰</li><li>想出可能的解法们<ul><li>比较，加强</li></ul></li><li>多写</li><li>测试</li></ul><h3 id="五毒神掌"><a href="#五毒神掌" class="headerlink" title="五毒神掌"></a>五毒神掌</h3><h4 id="刷题第一遍"><a href="#刷题第一遍" class="headerlink" title="刷题第一遍"></a>刷题第一遍</h4><ul><li>5分钟：读题 + 思考</li><li>直接看解法：注意！多解法，比较解法优劣。</li><li><code>背诵，默写</code>解法。</li></ul><h4 id="刷题第二遍"><a href="#刷题第二遍" class="headerlink" title="刷题第二遍"></a>刷题第二遍</h4><ul><li>马上自己写—&gt;LeetCode提交</li><li>多种解法比较，体会–&gt;优化!</li></ul><h4 id="刷题第三遍"><a href="#刷题第三遍" class="headerlink" title="刷题第三遍"></a>刷题第三遍</h4><ul><li>一天之后，重复做原题。</li><li>不同解法的熟练程度—&gt;专项练习</li></ul><h4 id="刷题第四遍"><a href="#刷题第四遍" class="headerlink" title="刷题第四遍"></a>刷题第四遍</h4><ul><li>一个月之后，重复做原题。</li></ul><h4 id="刷题第五遍"><a href="#刷题第五遍" class="headerlink" title="刷题第五遍"></a>刷题第五遍</h4><ul><li>面试前一周恢复性训练</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="推荐书籍：《异类：不一样的成功启示》"><a href="#推荐书籍：《异类：不一样的成功启示》" class="headerlink" title="推荐书籍：《异类：不一样的成功启示》"></a>推荐书籍：<code>《异类：不一样的成功启示》</code></h2><p>精通一个领域：</p><ul><li>切碎知识点</li><li>刻意练习（五毒神掌，练习弱项）</li><li>反馈<ul><li>主动反馈</li></ul></li></ul><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><ul><li>一维：<ul><li>基础：数组array (String),链表 linked list</li><li>高级：栈 stack, 队列 queue, 双端队列 deque, 集合 set , 映射 map(hash or map)</li></ul></li><li>二维：<ul><li>基础：数tree  ,图 graph</li><li>高级：二叉搜索树 binary search tree(red-black tree红黑树,AVL)，堆 heep， 并查集 disjoint set,字典树 Trie</li></ul></li><li>特殊：<ul><li>位运算 Bitwise, 布隆过滤器 BloomFilter</li><li>LRU Cache缓存</li></ul></li></ul><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ul><li>if-else,switch –&gt;branch</li><li>for,while loop—&gt;iteration</li><li>递归 Recursion(Divide &amp; Conquer, Backtrace)</li><li>搜索 Search:  深度优先搜索(Depth first search) ,广度优先搜索（Breadth first search）</li><li>动态规划 Dynamic Programming</li><li>二分查找Binary Search</li><li>贪心算法 Greedy</li><li>数学 Math ,几何 Geometry </li></ul><p>注意：<code>刻意练习（五毒神掌）</code></p><h2 id="切题四件套"><a href="#切题四件套" class="headerlink" title="切题四件套"></a>切题四件套</h2><ul><li>审题清晰</li><li>想出可能的解法们<ul><li>比较，加强</li></ul></li><li>多写</li><li>测试</li></ul><h2 id="五毒神掌"><a href="#五毒神掌" class="headerlink" title="五毒神掌"></a>五毒神掌</h2><h3 id="刷题第一遍"><a href="#刷题第一遍" class="headerlink" title="刷题第一遍"></a>刷题第一遍</h3><ul><li>5分钟：读题 + 思考</li><li>直接看解法：注意！多解法，比较解法优劣。</li><li><code>背诵，默写</code>解法。</li></ul><h3 id="刷题第二遍"><a href="#刷题第二遍" class="headerlink" title="刷题第二遍"></a>刷题第二遍</h3><ul><li>马上自己写—&gt;LeetCode提交</li><li>多种解法比较，体会–&gt;优化!</li></ul><h3 id="刷题第三遍"><a href="#刷题第三遍" class="headerlink" title="刷题第三遍"></a>刷题第三遍</h3><ul><li>一天之后，重复做原题。</li><li>不同解法的熟练程度—&gt;专项练习</li></ul><h3 id="刷题第四遍"><a href="#刷题第四遍" class="headerlink" title="刷题第四遍"></a>刷题第四遍</h3><ul><li>一个月之后，重复做原题。</li></ul><h3 id="刷题第五遍"><a href="#刷题第五遍" class="headerlink" title="刷题第五遍"></a>刷题第五遍</h3><ul><li>面试前一周恢复性训练</li></ul>]]></content>
       
       
       <categories>

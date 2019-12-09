@@ -5,19 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>02训练环境设置，编码技巧，Code Style及时间空间复杂度 - Hexo</title>
+    <title>04移动零 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="Java全栈工程师,训练环境的设置，编码技巧和Code Style电脑配置
-搜索引擎默认Google
-Terminal
-Mac:iTerm2 +zsh
-Windows:Microsoft new terminal
-
-
-,"> 
+    <meta name="description" content="Java全栈工程师,题目给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+示例:
+​       输入: [0,1,0,3,12]
+​       输出: [1,3,12,,"> 
     <meta name="author" content="Fenco Han"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -49,7 +45,7 @@ Windows:Microsoft new terminal
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">02训练环境设置，编码技巧，Code Style及时间空间复杂度</h3>
+        <h3 class="subtitle">04移动零</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" target="_blank" rel="noopener" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -81,21 +77,21 @@ Windows:Microsoft new terminal
                 
                     <a href="/categories/算法"><b>「 </b>算法<b> 」</b></a>
                 
-                十一月 21, 2019
+                十一月 22, 2019
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/11/21/algorithm-learning02/" title="02训练环境设置，编码技巧，Code Style及时间空间复杂度" class="">02训练环境设置，编码技巧，Code Style及时间空间复杂度</a></h3>
+            <h3 class="post-title animated fadeInDown"><a href="/2019/11/22/algorithm-learning04/" title="04移动零" class="">04移动零</a></h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                        3.4k
+                        268
                     </span>
                     
                     
                         <span>
                         <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                        3 mins.
+                        1 mins.
                     </span>
                     
                     
@@ -107,6 +103,8 @@ Windows:Microsoft new terminal
                     
                 </p>
             
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Tag1/" rel="tag">Tag1</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Tag2/" rel="tag">Tag2</a></li></ul>
             
         </div>
     </div>
@@ -127,94 +125,15 @@ Windows:Microsoft new terminal
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn slower">
-            <h1 id="训练环境的设置，编码技巧和Code-Style"><a href="#训练环境的设置，编码技巧和Code-Style" class="headerlink" title="训练环境的设置，编码技巧和Code Style"></a>训练环境的设置，编码技巧和Code Style</h1><h2 id="电脑配置"><a href="#电脑配置" class="headerlink" title="电脑配置"></a>电脑配置</h2><ul>
-<li>搜索引擎默认Google</li>
-<li>Terminal<ul>
-<li>Mac:iTerm2 +zsh</li>
-<li>Windows:Microsoft new terminal</li>
-</ul>
-</li>
-<li>LeetCode plugin (vscode &amp; IntelliJ)</li>
-<li><a href="http://vscodethemes.com/" target="_blank" rel="noopener">http://vscodethemes.com/</a></li>
-<li>骚操作<ul>
-<li><a href="https://juejin.im/entry/587e0f2f570c352201113e14" target="_blank" rel="noopener">https://juejin.im/entry/587e0f2f570c352201113e14</a></li>
-<li><a href="https://juejin.im/post/5ce1365151882525ff28ed47" target="_blank" rel="noopener">https://juejin.im/post/5ce1365151882525ff28ed47</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="Code-Style"><a href="#Code-Style" class="headerlink" title="Code Style"></a>Code Style</h2><ul>
-<li>Google Code Style</li>
-</ul>
-<h2 id="LeetCode"><a href="#LeetCode" class="headerlink" title="LeetCode"></a>LeetCode</h2><ul>
-<li>leetcode-cn.com(国内版)和题</li>
-<li>leetcode.com（国外版）和Discuss border</li>
-</ul>
-<h2 id="指法和小操作"><a href="#指法和小操作" class="headerlink" title="指法和小操作"></a>指法和小操作</h2><ul>
-<li>home , end (行头，行尾)</li>
-<li>word单词，选单词，选整行</li>
-<li>IDE的自动补全</li>
-<li>Top tips for <IDE-name></li>
-</ul>
-<p><code>养成使用快捷键的习惯，提高编码效率</code></p>
-<h2 id="自顶向下的编程方式"><a href="#自顶向下的编程方式" class="headerlink" title="自顶向下的编程方式"></a>自顶向下的编程方式</h2><p><a href="https://markhneedham.com/blog/2008/09/15/clean-code-book-review/" target="_blank" rel="noopener">https://markhneedham.com/blog/2008/09/15/clean-code-book-review/</a></p>
-<hr>
-<h1 id="时间复杂度和空间复杂度"><a href="#时间复杂度和空间复杂度" class="headerlink" title="时间复杂度和空间复杂度"></a>时间复杂度和空间复杂度</h1><h2 id="Big-O-notation"><a href="#Big-O-notation" class="headerlink" title="Big O notation"></a>Big O notation</h2><ul>
-<li>O（1）:常数复杂度</li>
-<li>O（log n）:对数复杂度</li>
-<li>O（n）：线性时间复杂度</li>
-<li>O（n^2）:N 平方</li>
-<li>O（n^3）:N 立方</li>
-<li>O（2^n）:指数O（n!）:阶乘</li>
-</ul>
-<p><code>注意：只看最高复杂度的运算。</code></p>
-<pre><code class="java">O(1):
-    int n = 100;
-    System.out.println(&quot;hello &quot; + n);
-
-O(1):    
-    int n = 1000;
-    System.out.println(&quot;hello &quot; + n);
-    System.out.println(&quot;hi &quot; + n);
-    System.out.println(&quot;helo &quot; + n);
-
-O(N):
-    for(int i = 1; i&lt;= n; i++) {
-        System.out.println(&quot;hello &quot; + i);
-    }
-
-O(N^2):
-    for (int i = 1; i&lt;=n; i++) {
-        for (int j = 1; j&lt;=n; j++) {
-            System.out.println(&quot;hello &quot; + i + j);
-        }
-    }
-
-O(log(n)):
-    for (int i = 1; i &lt; n; i = i * 2) {
-        System.out.println(&quot;hello &quot; + i);
-    }
-
-O(k^n):
-    int fib(int n) {
-        if(n &lt;=2 ) return n;
-        return fib(n - 1) + fib(n - 2); 
-    }</code></pre>
-<h2 id="Master-Theorem-主定理"><a href="#Master-Theorem-主定理" class="headerlink" title="Master Theorem(主定理)"></a>Master Theorem(主定理)</h2><img src="https://s2.ax1x.com/2019/11/21/MoMpuR.png" alt="MoMpuR.png" border="0" />
-
-<h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><ul>
-<li><p>二叉树遍历-前序，中序，后序：时间复杂度是多少？</p>
-<p>O（n）,n 为节点总数</p>
-</li>
-<li><p>图的遍历：时间复杂度是多少？</p>
-<p>O（n）,n 为节点总数</p>
-</li>
-<li><p>搜索算法：DFS深度优先算法、BFS广度优先算法时间复杂度是多少？</p>
-<p>O（n）,n 为节点总数</p>
-</li>
-<li><p>二分查找：时间复杂度是多少？</p>
-<p>O（log n)</p>
-</li>
-</ul>
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。</p>
+<p>示例:</p>
+<p>​       输入: [0,1,0,3,12]</p>
+<p>​       输出: [1,3,12,0,0]</p>
+<p>说明:</p>
+<ol>
+<li>必须在原数组上操作，不能拷贝额外的数组。</li>
+<li>尽量减少操作次数。</li>
+</ol>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
@@ -269,7 +188,7 @@ O(k^n):
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#训练环境的设置，编码技巧和Code-Style"><span class="toc-number">1.</span> <span class="toc-text">训练环境的设置，编码技巧和Code Style</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#电脑配置"><span class="toc-number">1.1.</span> <span class="toc-text">电脑配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code-Style"><span class="toc-number">1.2.</span> <span class="toc-text">Code Style</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LeetCode"><span class="toc-number">1.3.</span> <span class="toc-text">LeetCode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指法和小操作"><span class="toc-number">1.4.</span> <span class="toc-text">指法和小操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自顶向下的编程方式"><span class="toc-number">1.5.</span> <span class="toc-text">自顶向下的编程方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#时间复杂度和空间复杂度"><span class="toc-number">2.</span> <span class="toc-text">时间复杂度和空间复杂度</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Big-O-notation"><span class="toc-number">2.1.</span> <span class="toc-text">Big O notation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Master-Theorem-主定理"><span class="toc-number">2.2.</span> <span class="toc-text">Master Theorem(主定理)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考题"><span class="toc-number">2.3.</span> <span class="toc-text">思考题</span></a></li></ol></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li></ol>
                         </div>
                     </div>
                 
