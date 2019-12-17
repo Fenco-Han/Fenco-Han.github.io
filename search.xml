@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>P11ContainerWIthMostWater</title>
+      <link href="/2019/12/17/P11ContainerWIthMostWater/"/>
+      <url>/2019/12/17/P11ContainerWIthMostWater/</url>
+      
+        <content type="html"><![CDATA[<h1 id="P11盛水最多的容器"><a href="#P11盛水最多的容器" class="headerlink" title="P11盛水最多的容器"></a>P11盛水最多的容器</h1><p>给定 <em>n</em> 个非负整数 <em>a</em>1，<em>a</em>2，…，<em>a</em>n，每个数代表坐标中的一个点 (<em>i</em>, <em>ai</em>) 。在坐标内画 <em>n</em> 条垂直线，垂直线 <em>i</em> 的两个端点分别为 (<em>i</em>, <em>ai</em>) 和 (<em>i</em>, 0)。找出其中的两条线，使得它们与 <em>x</em> 轴共同构成的容器可以容纳最多的水。</p><p><strong>说明：</strong>你不能倾斜容器，且 <em>n</em> 的值至少为 2。</p><p><img src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg" alt="img"></p><p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p><p><strong>示例:</strong></p><pre><code class="java">输入: [1,8,6,2,5,4,8,3,7]输出: 49</code></pre><p>Related Topics：数组    双指针</p><pre><code class="java">    /**     * 方案一：双指针法（推荐）     * 定义i,j分别在容器两端，向中间聚集，只到i==j结束，定义最大容积为res     * 利用三元函数，当height[i]与height[j]比较，取最小值。     * 当height[i]较小时，则res = Math.max(res, (j -i) * height[i++])     * 当height[j]较小时，则res = Math.max(res, (j -i) * height[j--])     */    class Solution {    public int maxArea(int[] height) {        int j,res;        int i = 0; j = height.length - 1; res = 0;        while (i &lt; j) {            res = height[i] &lt; height[j] ? Math.max(res, (j - i) * height[i++]) : Math.max(res, (j - i) * height[j--]);        }        return res;        }    }</code></pre><pre><code class="java">/**  * 方案二：暴力法 * 定义i，j = i+1，两层循环得到容积的最大  * 问题，有好多本身冗余的值  */class Solution {        public int maxArea(int[] height) {             int res = 0;             for (int i = 0; i &lt; height.length; i++) {                     for (int j = i + 1; j &lt; height.length; j++) {                            res = Math.max(res,Math.min(height[i],height[j]) * (j - i));                             return res;                     }             }        }}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>P1TwoSum</title>
       <link href="/2019/12/09/P1TwoSum/"/>
       <url>/2019/12/09/P1TwoSum/</url>
