@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>P15ThreeSum</title>
+      <link href="/2019/12/17/P15ThreeSum/"/>
+      <url>/2019/12/17/P15ThreeSum/</url>
+      
+        <content type="html"><![CDATA[<h1 id="P15三数之和"><a href="#P15三数之和" class="headerlink" title="P15三数之和"></a>P15三数之和</h1><p>给定一个包含 <em>n</em> 个整数的数组 <code>nums</code>，判断 <code>nums</code> 中是否存在三个元素 <em>a，b，c ，*使得 *a + b + c =</em> 0 ？找出所有满足条件且不重复的三元组。</p><p><strong>注意：</strong>答案中不可以包含重复的三元组。</p><pre><code class="java">例如, 给定数组 nums = [-1, 0, 1, 2, -1, -4]，满足要求的三元组集合为：[  [-1, 0, 1],  [-1, -1, 2]]</code></pre><p>Related Topics：数组   双指针</p><pre><code class="java">    /**          * 方案一：暴力法，直接三层循环          * 结果会出现重复数据          */    class Solution {        public List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) {                            List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();                 for (int i = 0; i &lt; nums.length - 2; i++) {                         for (int j = i + 1; j &lt; nums.length - 1; j++) {                                for (int k = j + 1; k &lt; nums.length; k++) {                                    if (nums[i] + nums[j] + nums[k] == 0) {                                         res.add(Arrays.asList(nums[i],nums[j],nums[k]));              }                                                                      }                  }            }          return res;      }}</code></pre><pre><code class="java">/**  * 方案二：  * 首先对该数组进行排序，然后进行判断：  *     当数组长度小于3，直接return;  *     当nums[i] &gt; 0,则三数之和一定大于0，因为一开始已经排序了，直接break;  *  */class Solution {        public List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) {                             List&lt;List&lt;Integer&gt;&gt; ans = new ArrayList&lt;&gt;();                               int len = nums.length;                if (nums == null || len &lt; 3) {                        return ans;                }                Arrays.sort(nums);//排序                for (int i = 0; i &lt; len; i++) {                        if (nums[i] &gt; 0) {                    break;                            //如果当前数字&gt;0，则三数之和一定大于0，则结束循环                         }                        if (i &gt; 0 &amp;&amp; nums[i] == nums[i - 1]) {                continue;                 //如果当前数字重复，则跳过。                                       }                        int L = i + 1;                        int R = len - 1;                        while (L &lt; R) {                                int sum = nums[i] + nums[L] + nums[R];                               if (sum == 0) {                                                                 ans.add(Arrays.asList(nums[i],nums[L],nums[R]));                           while (L &lt; R &amp;&amp; nums[L] == nums[L+1]) {                      L++;                                    }                                   while (L &lt; R &amp;&amp; nums[R] == nums[R-1]) {                                        R--;                                    }                                     L++;                                     R--;                             }                                else if (sum &lt; 0) {                                       L++;                                }                                else if (sum &gt; 0) {                                        R--;                                }                        }                }                return ans;         }}</code></pre><pre><code class="java">/**  * 方案二的改进：（推荐）  * 也是用到了双向指针  */class Solution {        public List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) {                List&lt;List&lt;Integer&gt;&gt; ans = new ArrayList&lt;&gt;();                Arrays.sort(nums);//排序                for (int i = 0; i &lt; nums.length - 2; i++) {                        if (i == 0 || (i &gt; 0 &amp;&amp; nums[i] != nums[i-1])) {                                int L = i + 1, R = nums.length - 1, sum = 0 - nums[i];                              while (L &lt; R) {                                    if (nums[L] + nums[R] == sum) {                                                               ans.add(Arrays.asList(nums[i],nums[L],nums[R]));                                         while (L &lt; R &amp;&amp; nums[L] == nums[L+1]) {                                                //去重                                               L++;                                        }                                         while (L &lt; R &amp;&amp; nums[R] == nums[R-1]) {                                                 //去重                                                 R--;                                         }                                         L++;                                         R--;                                  } else if (nums[L] + nums[R] &lt; sum) {                                           //向右移动                                            L++;                                    }else {                                            //向左移动                                           R--;                                    }                                }                        }                }                return ans;        }}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>P11ContainerWIthMostWater</title>
       <link href="/2019/12/17/P11ContainerWIthMostWater/"/>
       <url>/2019/12/17/P11ContainerWIthMostWater/</url>
