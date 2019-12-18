@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>P141LinkedListCycle</title>
+      <link href="/2019/12/18/P141LinkedListCycle/"/>
+      <url>/2019/12/18/P141LinkedListCycle/</url>
+      
+        <content type="html"><![CDATA[<h1 id="P141环形链表"><a href="#P141环形链表" class="headerlink" title="P141环形链表"></a>P141环形链表</h1><p>给定一个链表，判断链表中是否有环。</p><p>为了表示给定链表中的环，我们使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。</p><p><strong>示例 1：</strong></p><pre><code>输入：head = [3,2,0,-4], pos = 1输出：true解释：链表中有一个环，其尾部连接到第二个节点。</code></pre><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist.png" alt="img"></p><p><strong>示例 2：</strong></p><pre><code>输入：head = [1,2], pos = 0输出：true解释：链表中有一个环，其尾部连接到第一个节点。</code></pre><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test2.png" alt="img"></p><p><strong>示例 3：</strong></p><pre><code>输入：head = [1], pos = -1输出：false解释：链表中没有环。</code></pre><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test3.png" alt="img"></p><p><strong>进阶：</strong></p><p>你能用 <em>O(1)</em>（即，常量）内存解决此问题吗？</p><p>Related Topics：链表      双指针</p><pre><code class="java"> /**  * 方法一：利用哈希表，将head一个一个保存至hash,  * 当出现nodesSeen.Contains(head),则出现过该元素，所以有环形链表。  */   public class Solution {       public boolean hasCycle(ListNode head) {           Set&lt;ListNode&gt; nodesSeen = new HashSet&lt;&gt;();           while (head != null) {               if (nodesSeen.contains(head)) {                   return true;               } else {                   nodesSeen.add(head);               }               head = head.next;           }           return false;       }   }</code></pre><pre><code class="java">    /**     * 方法二：利用双指针，快慢指针。     * 0ms  37.8MB     */   public class Solution {        public boolean hasCycle(ListNode head) {            //如果该链表就一个元素或者两个元素，不够成环，return false;            if (head = null || head.next = null) {                return false;            }            //定义慢指针slow,快指针fast;            ListNode slow = head;            ListNode fast = head.next;            //当slow != fast,则两者都向后移动，否则return true;            while (slow != fast) {                //当slow != fast,这时快指针到头了，所以也没环了，return false;                if (fast == null || fast.next === null) {                    return false;                } else {                slow = slow.next;                fast = fast.next.next;                }            }            return true;        }   }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 链表 </tag>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>P21MergeTwoSortedLists</title>
+      <link href="/2019/12/18/P21MergeTwoSortedLists/"/>
+      <url>/2019/12/18/P21MergeTwoSortedLists/</url>
+      
+        <content type="html"><![CDATA[<h1 id="P21合并两个有序链表"><a href="#P21合并两个有序链表" class="headerlink" title="P21合并两个有序链表"></a>P21合并两个有序链表</h1><p>将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p><p><strong>示例：</strong></p><pre><code class="java">输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</code></pre><p>Related Topics：链表</p><pre><code class="java">/** *方法一： *递归方法：利用mergeTwoLists本身进行递归。 */class Solution {    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {        if (l1 == null) {            return l2;        }else if (l2 == null) {            return l1;        }else if (l1.val &lt; l2.val) {            l1.next = mergeTwoLists(l1.next,l2);            return l1;        }else {            l2.next = mergeTwoLists(l1,l2.next);            return l2;        }    }}</code></pre><pre><code class="java">/** *方法二：迭代 */class Solution {    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {        //设置哨兵节点prehead，并指定为-1        ListNode prehead = new ListNode(-1);         //设置prev指针用来做下标。        ListNode prev = prehead;        while (l1 != null &amp;&amp; l2 != null) {            if (l1.val &lt;= l2.val) {                //则prev.next指向较小的                prev.next = l1;                //由于该l1已经比较过了，所以向后移动一位，l1 = l1.next;                l1 = l1.next;            }else {                prev.next = l2;                l2 = l2.next;            }            //一轮比较结束后，将prev也向后移动一位            prev = prev.next;         }        //全部比较结束后，prev.next 指向不为null的值。        //由于最有一轮比较结束后出现了l1 == null或者l2 == null,        // 所以接下来也就是说某一链表已经没有元素了。        //所以直接将prev.next指向不为null的那个链表就行。        prev.next = l1 == null ? l2 : l1;        return prehead.next;    }}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>P15ThreeSum</title>
       <link href="/2019/12/17/P15ThreeSum/"/>
       <url>/2019/12/17/P15ThreeSum/</url>
@@ -20,9 +72,9 @@
       
         <tags>
             
-            <tag> 数组 </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -47,9 +99,9 @@
       
         <tags>
             
-            <tag> 数组 </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -101,9 +153,9 @@
       
         <tags>
             
-            <tag> 数组 </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       

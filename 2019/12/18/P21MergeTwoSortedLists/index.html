@@ -5,13 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>P1TwoSum - Hexo</title>
+    <title>P21MergeTwoSortedLists - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="Java全栈工程师,P1两数之和给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
-你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个,"> 
+    <meta name="description" content="Java全栈工程师,P21合并两个有序链表将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+示例：
+输入：1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4
+输出：1,"> 
     <meta name="author" content="Fenco Han"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -43,7 +45,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">P1TwoSum</h3>
+        <h3 class="subtitle">P21MergeTwoSortedLists</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" target="_blank" rel="noopener" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -75,15 +77,15 @@
                 
                     <a href="/categories/算法"><b>「 </b>算法<b> 」</b></a>
                 
-                十二月 09, 2019
+                十二月 18, 2019
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/12/09/P1TwoSum/" title="P1TwoSum" class="">P1TwoSum</a></h3>
+            <h3 class="post-title animated fadeInDown"><a href="/2019/12/18/P21MergeTwoSortedLists/" title="P21MergeTwoSortedLists" class="">P21MergeTwoSortedLists</a></h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                        1.8k
+                        1.7k
                     </span>
                     
                     
@@ -102,7 +104,7 @@
                 </p>
             
             
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a></li></ul>
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a></li></ul>
             
         </div>
     </div>
@@ -123,44 +125,60 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn slower">
-            <h1 id="P1两数之和"><a href="#P1两数之和" class="headerlink" title="P1两数之和"></a>P1两数之和</h1><p>给定一个整数数组 <code>nums</code> 和一个目标值 <code>target</code>，请你在该数组中找出和为目标值的那 <strong>两个</strong> 整数，并返回他们的数组下标。</p>
-<p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
-<p><strong>示例:</strong></p>
-<pre><code class="java">给定 nums = [2, 7, 11, 15], target = 9
-
-因为 nums[0] + nums[1] = 2 + 7 = 9
-所以返回 [0, 1]</code></pre>
-<p>Related Topics：数组，哈希表</p>
-<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>暴力法：遍历每一个元素，运行用两层for循环，进行判断。</p>
-<pre><code class="java">class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        for (int i = 0; i &lt; nums.length; i++) {
-            for (int j = i + 1; j &lt; nums.length; j++) {
-                if (nums[j] = target - nums[i]) {
-                    return new int[] {i,j};
-                }
-            }
+            <h1 id="P21合并两个有序链表"><a href="#P21合并两个有序链表" class="headerlink" title="P21合并两个有序链表"></a>P21合并两个有序链表</h1><p>将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
+<p><strong>示例：</strong></p>
+<pre><code class="java">输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4
+输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</code></pre>
+<p>Related Topics：链表</p>
+<pre><code class="java">/**
+ *方法一：
+ *递归方法：利用mergeTwoLists本身进行递归。
+ */
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }else if (l2 == null) {
+            return l1;
+        }else if (l1.val &lt; l2.val) {
+            l1.next = mergeTwoLists(l1.next,l2);
+            return l1;
+        }else {
+            l2.next = mergeTwoLists(l1,l2.next);
+            return l2;
         }
-         throw new IllegalArgumentException(&quot;No two sum solution&quot;);
     }
-}
-//总结：时间复杂度为：O（n^2）</code></pre>
-<h2 id="方法二：推荐"><a href="#方法二：推荐" class="headerlink" title="方法二：推荐"></a>方法二：<code>推荐</code></h2><p>使用一遍哈希表</p>
-<pre><code class="java">class Solution {
-        public int[] twoSum(int[] nums, int target) {
-            //声明一个HashMap
-            Map&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();
-            for (int i = 0; i &lt; nums.length; i++) {
-       //现将所有能够满足target - num[i],找出，然后再去之后保存的map中查询。
-                int complement = target - nums[i];
-                //找到所有满足complement且与i不冲突的
-                if (map.containsKey(complement) &amp;&amp; map.get(complement) != i) {
-                    return new int[] {i,map.get(complement)};
-                }
-                //利用map将数组元素与索引一一对应
-                map.put(nums[i], i);
+}</code></pre>
+<pre><code class="java">/**
+ *方法二：迭代
+ */
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        //设置哨兵节点prehead，并指定为-1
+        ListNode prehead = new ListNode(-1);
+         //设置prev指针用来做下标。
+        ListNode prev = prehead;
+        while (l1 != null &amp;&amp; l2 != null) {
+            if (l1.val &lt;= l2.val) {
+                //则prev.next指向较小的
+                prev.next = l1;
+                //由于该l1已经比较过了，所以向后移动一位，l1 = l1.next;
+                l1 = l1.next;
+            }else {
+                prev.next = l2;
+                l2 = l2.next;
             }
-        }</code></pre>
+            //一轮比较结束后，将prev也向后移动一位
+            prev = prev.next; 
+        }
+        //全部比较结束后，prev.next 指向不为null的值。
+        //由于最有一轮比较结束后出现了l1 == null或者l2 == null,
+        // 所以接下来也就是说某一链表已经没有元素了。
+        //所以直接将prev.next指向不为null的那个链表就行。
+        prev.next = l1 == null ? l2 : l1;
+        return prehead.next;
+    }
+}</code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
@@ -215,7 +233,7 @@
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#P1两数之和"><span class="toc-number">1.</span> <span class="toc-text">P1两数之和</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法一："><span class="toc-number">1.1.</span> <span class="toc-text">方法一：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法二：推荐"><span class="toc-number">1.2.</span> <span class="toc-text">方法二：推荐</span></a></li></ol></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#P21合并两个有序链表"><span class="toc-number">1.</span> <span class="toc-text">P21合并两个有序链表</span></a></li></ol>
                         </div>
                     </div>
                 
