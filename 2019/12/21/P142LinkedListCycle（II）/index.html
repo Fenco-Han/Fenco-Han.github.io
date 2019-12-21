@@ -83,7 +83,7 @@
                     
                         <span>
                         <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                        2.9k
+                        3.6k
                     </span>
                     
                     
@@ -201,6 +201,28 @@
             return start;
         }
     }</code></pre>
+<pre><code class="java">    /**
+     * 方法二的简化版本（推荐）
+     */
+    public class Solution {
+        public ListNode detectCycle(ListNode head) {
+            ListNode slow = head;
+            ListNode fast = head;
+            while (fast != null &amp;&amp; fast.next != null) {
+                slow = slow.next;
+                fast = fast.next.next;
+                if (slow == fast) {
+                    ListNode slow2 = head;
+                    while (slow != slow2) {
+                        slow = slow.next;
+                        slow2 = slow2.next;
+                    }
+                    return slow;
+                }
+            }
+            return null;
+        }
+    }</code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
@@ -233,7 +255,7 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">14 <p>文章</p></a></li>
+                    <li><a href="/">15 <p>文章</p></a></li>
                     <li><a href="/categories">4 <p>分类</p></a></li>
                     <li><a href="/tags">7 <p>标签</p></a></li>
                 </ul>
