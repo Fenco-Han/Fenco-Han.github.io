@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>P142LinkedListCycle（II）</title>
+      <link href="/2019/12/21/P142LinkedListCycle%EF%BC%88II%EF%BC%89/"/>
+      <url>/2019/12/21/P142LinkedListCycle%EF%BC%88II%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 <code>null</code>。</p><p>为了表示给定链表中的环，我们使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。</p><p><strong>说明：</strong>不允许修改给定的链表。</p><p><strong>示例 1：</strong></p><pre><code>输入：head = [3,2,0,-4], pos = 1输出：tail connects to node index 1解释：链表中有一个环，其尾部连接到第二个节点。</code></pre><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist.png" alt="img"></p><p><strong>示例 2：</strong></p><pre><code>输入：head = [1,2], pos = 0输出：tail connects to node index 0解释：链表中有一个环，其尾部连接到第一个节点。</code></pre><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test2.png" alt="img"></p><p><strong>示例 3：</strong></p><pre><code>输入：head = [1], pos = -1输出：no cycle解释：链表中没有环。</code></pre><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test3.png" alt="img"></p><p><strong>进阶：</strong><br>你是否可以不用额外空间解决此题？</p><p>Related Topics：链表        双指针</p><pre><code class="java">    /**     * 方法一：利用哈希表     * 将遍历过的元素保存进去，如果遇到重复的则，return node;     * 没遇到重复的则visited.add(node);     * node往后移动，node = node.next;     */    public class Solution {        public P142LinkedListCycleIi.ListNode detectCycle(P142LinkedListCycleIi.ListNode head) {            Set&lt;ListNode&gt; visited = new HashSet&lt;&gt;();            ListNode node = head;            while (node != null) {                if (visited.contains(node)) {                    return node;                }                visited.add(node);                node = node.next;            }            return null;        }    }</code></pre><pre><code class="java"> /**     * 方法二：Floyd算法     *      */    public class Solution {        //利用快慢指针，先判断是否有环，若有环则返回slow,fast重合位置。        //备注：slow,fast重合位置不一定就是入环节点。        // (环形链表 I)只需要判断是否含有环，        // 而（环形链表 II）,需要返回入环节点。        private ListNode getIntersect(ListNode head) {            ListNode slow = head;            ListNode fast = head;            while (fast != null &amp;&amp; fast.next != null) {                slow = slow.next;                fast = fast.next.next;                if (slow == fast) {                    return slow;                }            }            return null;        }        public ListNode detectCycle(ListNode head) {            if (head == null) {                return null;            }            //获取重合节点            ListNode index = getIntersect(head);            if (index == null) {                return null;            }            //重合节点与head节点同步走时，这一次重合点就是入环口节点。            ListNode start = head;            ListNode end = index;            while (start != end) {                start = start.next;                end = end.next;            }            return start;        }    }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 链表 </tag>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>P24SwapNodesInPairs</title>
+      <link href="/2019/12/20/P24SwapNodesInPairs/"/>
+      <url>/2019/12/20/P24SwapNodesInPairs/</url>
+      
+        <content type="html"><![CDATA[<p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p><p><strong>你不能只是单纯的改变节点内部的值</strong>，而是需要实际的进行节点交换。</p><p><strong>示例:</strong></p><pre><code>给定 1-&gt;2-&gt;3-&gt;4, 你应该返回 2-&gt;1-&gt;4-&gt;3.</code></pre><p>Related Topics：链表</p><pre><code class="java">/** *方法一：迭代法 */class Solution {    public ListNode swapPairs(ListNode head) {        //设置哨兵节点prehead,并指定为0，最后直接输出prehead.next即为结果        ListNode prehead = new ListNode(0);        prehead.next = head;        //设置prev指针用来做下标。(最关键的就是prev,因为下面用到的start,end都是从prev来，        // 所以，当改变prev的值时，等下一个循环时，就可以再次进行交换。)        ListNode prev = prehead;        while (prev.next != null &amp;&amp; prev.next.next != null) {            ListNode start = prev.next;            ListNode end = prev.next.next;            //将prehead节点指向end节点，0--&gt;2            prev.next = end;            //第一个节点指向end之后的节点1--&gt;3            start.next = end.next;            //end节点指向第一个节点 2--&gt;1            end.next = start;            //综上：0--&gt;2--&gt;1--&gt;3--&gt;4,这里仅仅只是2和1位置变化了，要继续变化位置            //所以，要将原来prev指针改变位置，进而start,end也会变化。            //我们要变成1--&gt;4--&gt;3,所以1变成原来的0            prev = start;            //这时候根据上面，prev为1的下标，strat = prev.next,则，start为3的下标            //end = prev.next.next,则，end为4的下标。则有一次交换指针开始了。        }        return prehead.next;    }}</code></pre><pre><code class="java">    /**     * 递归方式     * [1,2,3,4,5,6]     */    class Solution {        public ListNode swapPairs(ListNode head) {            //判断为null的话，直接return            if (head == null || head.next == null) {                return head;            }            //1的下标为head,定义2的下标为next;            ListNode next = head.next;            //让1指向f(3,4,5,6,null);            head.next = swapPairs(next.next);            //让2指向1            next.next = head;            //综上2--&gt;1--&gt;f(3,4,5,6,null)            //f(3,4,5,6):4--&gt;3--&gt;f(5,6，null);            //f(5,6):6--&gt;5--&gt;f(null)            //结果：2-&gt;1-&gt;4-&gt;3-&gt;6-&gt;5-&gt;null            return next;        }    }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>P141LinkedListCycle</title>
       <link href="/2019/12/18/P141LinkedListCycle/"/>
       <url>/2019/12/18/P141LinkedListCycle/</url>
@@ -20,9 +72,9 @@
       
         <tags>
             
-            <tag> 双指针 </tag>
-            
             <tag> 链表 </tag>
+            
+            <tag> 双指针 </tag>
             
         </tags>
       
@@ -72,9 +124,9 @@
       
         <tags>
             
-            <tag> 数组 </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -99,9 +151,9 @@
       
         <tags>
             
-            <tag> 数组 </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
@@ -153,9 +205,9 @@
       
         <tags>
             
-            <tag> 数组 </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> 数组 </tag>
             
         </tags>
       
