@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>P268MissingNumber</title>
+      <link href="/2019/12/24/P268MissingNumber/"/>
+      <url>/2019/12/24/P268MissingNumber/</url>
+      
+        <content type="html"><![CDATA[<h2 id="P268-缺失数字"><a href="#P268-缺失数字" class="headerlink" title="P268 缺失数字"></a>P268 缺失数字</h2><p>给定一个包含 <code>0, 1, 2, ..., n</code> 中 <em>n</em> 个数的序列，找出 0 .. <em>n</em> 中没有出现在序列中的那个数。</p><p><strong>示例 1:</strong></p><pre><code>输入: [3,0,1]输出: 2</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: [9,6,4,2,3,5,7,0,1]输出: 8</code></pre><p><strong>说明:</strong><br>你的算法应具有线性时间复杂度。你能否仅使用额外常数空间来实现?</p><p>Related Topics ：位运算    数组    数学</p><pre><code class="java">    /**     * 方法一：排序     */    class Solution {        public int missingNumber(int[] nums) {            //先进行排序            Arrays.sort(nums);            int len = nums.length;            //先判断0是否出现在首位            if (nums[0] != 0) {                return 0;                //判断n是否出现在末位            } else if (nums[len - 1] != nums.length) {                return nums.length;            }            //若不缺少0，也不缺少n，则在0-n中有缺少的数            for (int i = 1; i &lt; len; i++) {                int expectedNum = nums[i - 1] + 1;                if (nums[i] != expectedNum) {                    return expectedNum;                }            }            //没有缺失数字            return -1;        }    }</code></pre><pre><code class="java">    /**     * 方法二：哈希表     */    class Solution2 {        public int missingNumber(int[] nums) {            Set&lt;Integer&gt; numSet = new HashSet&lt;Integer&gt;();            //把所有序列中的数加入到HashSet中            for (int num : nums            ) {                numSet.add(num);            }            for (int number = 0; number &lt;= nums.length; number++) {                if (!numSet.contains(number)) {                    return number;                }            }            return -1;        }    }</code></pre><pre><code class="java">    /**     * 方法三：位运算     */    class Solution3 {        public int missingNumber(int[] nums) {            if (nums == null) {                return 0;            }            int missing = nums.length;            for (int i = 0; i &lt; nums.length; i++) {                missing ^= i ^ nums[i];            }            return missing;        }    }</code></pre><pre><code class="java">    /**     * 方法四：数学方法，missing = sum + len;     * [0,1,2,3,4,5,7,8,9]     * [0,1,2,3,4,5,6,7,8]     */    class Solution4 {        public int missingNumber(int[] nums) {            if (nums == null) {                return 0;            }            int len = nums.length;            int sum = 0;            for (int i = 0; i &lt; len; i++) {                sum += (i - nums[i]);            }            return sum + len;        }    }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 位运算 </tag>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>P206ReverseLinkedList</title>
       <link href="/2019/12/21/P206ReverseLinkedList/"/>
       <url>/2019/12/21/P206ReverseLinkedList/</url>
