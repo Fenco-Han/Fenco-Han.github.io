@@ -5,15 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>P24SwapNodesInPairs - Hexo</title>
+    <title>Category: 全文检索 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="Java全栈工程师,给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
-你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
-示例:
-给定 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, 你应该返回 2-&amp;,"> 
+    <meta name="description" content="Java全栈工程师,"> 
     <meta name="author" content="Fenco Han"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -38,76 +35,135 @@
     </div>
     <span id="config-title" style="display:none">Hexo</span>
     <div id="loader"></div>
-    <div id="single">
-    <div class="scrollbar gradient-bg-rev"></div>
-<div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <div class="navigation animated fadeIn fast delay-1s">
-        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">P24SwapNodesInPairs</h3>
-        <div class="social">
-            <!--        <div class="like-icon">-->
-            <!--            <a href="javascript:;" target="_blank" rel="noopener" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-            <!--        </div>-->
-            <div>
-                <div class="share">
-                    
-                        <a href="javascript:;" target="_blank" rel="noopener" class="iconfont icon-share1"></a>
-                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/whoami/" title="ABOUT" external="false">ABOUT</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/categories/" title="CATEGORIES" external="false">CATEGORIES</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/tags/" title="TAGS" external="false">TAGS</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/archives/" title="ARCHIVES" external="false">ARCHIVES</a>
+        </li>
+        
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2020 Fenco Han.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+    </p>
 </div>
 
-    <div class="section">
-        <div class= article-header-wrapper>
-    <div class="article-header">
-        <div class="article-cover animated fadeIn" style="
-            animation-delay: 600ms;
-            animation-duration: 1.2s;
-            background-image: 
-                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input" />
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+      <div id="local-search-result"
+           class="local-search-result-cls"
+           data-initialise="首次搜索，正在载入索引文件，请稍后……"
+           data-start="输入关键词搜索。"
+           data-empty="没有找到内容，请尝试更换检索词。"
+      >
+        <span>输入关键词搜索。</span>
+      </div>
+    </div>
+</div>
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
+        </div>
+        <ul id="menu-menu" class="menu text-menu">
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/whoami/" title="ABOUT" external="false" class="menu-link">ABOUT</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/categories/" title="CATEGORIES" external="false" class="menu-link">CATEGORIES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/tags/" title="TAGS" external="false" class="menu-link">TAGS</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/archives/" title="ARCHIVES" external="false" class="menu-link">ARCHIVES</a>
+            </li>
+            
+            
+                <li class="animated fadeInDown search-bar iconfont icon-search"></li>
+            
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+            animation-delay: 900ms;
+            animation-duration: 2.8s;
+            background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
                 url(/img/cover.jpg);">
         </div>
-        <div class="else">
-            <p class="animated fadeInDown">
-                
-                    <a href="/categories/算法"><b>「 </b>算法<b> 」</b></a>
-                
-                十二月 20, 2019
-            </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/12/20/P24SwapNodesInPairs/" title="P24SwapNodesInPairs" class="">P24SwapNodesInPairs</a></h3>
+    </div>
+    
+    <div id="post0" class="else">
+        <p class="animated fadeInDown">
             
-                <p class="post-count animated fadeInDown">
-                    
-                        <span>
+                <a href="/categories/全文检索"><b>「 </b>全文检索<b> 」</b></a>
+            
+            一月 12, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/01/12/lucene/" title="Lucene" class="posttitle">Lucene</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
                         <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                        2.1k
+                        17k
                     </span>
-                    
-                    
-                        <span>
+                
+                
+                    <span>
                         <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                        2 mins.
+                        15 mins.
                     </span>
-                    
-                    
-                    
-                        <span id="busuanzi_container_page_pv">
-                            <b class="iconfont icon-read"></b> <i>阅读次数</i>
-                            <span id="busuanzi_value_page_pv">0</span>
-                        </span>
-                    
-                </p>
+                
+                
+            </p>
+        
+        
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Lucene/" rel="tag">Lucene</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Luke/" rel="tag">Luke</a></li></ul>
+        
+        <div class="md-content animated fadeIn">
             
+                <h4 id="一、什么是全文检索"><a href="#一、什么是全文检索" class="headerlink" title="一、什么是全文检索"></a>一、什么是全文检索</h4><h5 id="1-数据的分类"><a href="#1-数据的分类" class="headerlink" title="1. 数据的分类"></a>1. 数据的分类</h5><p><code>结构化数据</code></p>
+<p>​    格式固定、长度固定、数据类型固定</p>
+<p><code>非结构化数据</code></p>
+<p>​    word文档、pdf文档，邮件、html</p>
+<p>​    格式不固定、长度不固定、数据类型不固定</p>
+<h5 id="2-数据的查询"><a href="#2-数据的查询" class="headerlink" title="2. 数据的查询"></a>2. 数据的...</h5>
             
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a></li></ul>
-            
+            <span class="read-more"><a href="/2020/01/12/lucene/" title="查看全文" class="posttitle">查看全文</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
+    
 </div>
 
 <div class="screen-gradient-after">
@@ -115,132 +171,20 @@
         <div class="screen-gradient-content-inside">
             <div class="bold-underline-links screen-gradient-sponsor">
                 <p>
-                    <span class="animated fadeIn delay-1s"></span>
+                  <span class="typed-text"></span>
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="article">
-    <div class='main'>
-        <div class="content markdown animated fadeIn slower">
-            <p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p>
-<p><strong>你不能只是单纯的改变节点内部的值</strong>，而是需要实际的进行节点交换。</p>
-<p><strong>示例:</strong></p>
-<pre><code>给定 1-&gt;2-&gt;3-&gt;4, 你应该返回 2-&gt;1-&gt;4-&gt;3.</code></pre><p>Related Topics：链表</p>
-<pre><code class="java">/**
- *方法一：迭代法
- */
-class Solution {
-    public ListNode swapPairs(ListNode head) {
-        //设置哨兵节点prehead,并指定为0，最后直接输出prehead.next即为结果
-        ListNode prehead = new ListNode(0);
-        prehead.next = head;
-        //设置prev指针用来做下标。(最关键的就是prev,因为下面用到的start,end都是从prev来，
-        // 所以，当改变prev的值时，等下一个循环时，就可以再次进行交换。)
-        ListNode prev = prehead;
-        while (prev.next != null &amp;&amp; prev.next.next != null) {
-            ListNode start = prev.next;
-            ListNode end = prev.next.next;
-            //将prehead节点指向end节点，0--&gt;2
-            prev.next = end;
-            //第一个节点指向end之后的节点1--&gt;3
-            start.next = end.next;
-            //end节点指向第一个节点 2--&gt;1
-            end.next = start;
-            //综上：0--&gt;2--&gt;1--&gt;3--&gt;4,这里仅仅只是2和1位置变化了，要继续变化位置
-            //所以，要将原来prev指针改变位置，进而start,end也会变化。
-            //我们要变成1--&gt;4--&gt;3,所以1变成原来的0
-            prev = start;
-            //这时候根据上面，prev为1的下标，strat = prev.next,则，start为3的下标
-            //end = prev.next.next,则，end为4的下标。则有一次交换指针开始了。
-        }
-        return prehead.next;
-    }
-}</code></pre>
-<pre><code class="java">    /**
-     * 递归方式
-     * [1,2,3,4,5,6]
-     */
-    class Solution {
-        public ListNode swapPairs(ListNode head) {
-            //判断为null的话，直接return
-            if (head == null || head.next == null) {
-                return head;
-            }
-            //1的下标为head,定义2的下标为next;
-            ListNode next = head.next;
-            //让1指向f(3,4,5,6,null);
-            head.next = swapPairs(next.next);
-            //让2指向1
-            next.next = head;
-            //综上2--&gt;1--&gt;f(3,4,5,6,null)
-            //f(3,4,5,6):4--&gt;3--&gt;f(5,6，null);
-            //f(5,6):6--&gt;5--&gt;f(null)
-            //结果：2-&gt;1-&gt;4-&gt;3-&gt;6-&gt;5-&gt;null
-            return next;
-        }
-    }</code></pre>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        
-                            <li title='0' data-url='/statics/Canon.mp3'></li>
-                        
-                    
-                </ul>
-            
-            
-                
-    <div id='gitalk-container' class="comment link"
-        data-ae='true'
-        data-ci='ec894e2b66f752e8b7fb'
-        data-cs='3ccc2e92bb350688fe2c2dc2930189b62622bfb1'
-        data-r='blog-comments'
-        data-o='TriDiamond'
-        data-a='TriDiamond'
-        data-d=''
-    >留言</div>
-
-
-            
-            
-        </div>
-        <div class="sidebar">
-            <div class="box animated fadeInRight">
-                <div class="subbox">
-                    <img src="https://res.cloudinary.com/tridiamond/image/upload/v1573019751/TriDiamond_logo_ui_xeublz.jpg" height=300 width=300></img>
-                    <p>Fenco Han</p>
-                    <span>Think like an artist, develop like an artisan</span>
-                    <dl>
-                        <dd><a href="https://github.com/Fenco-Han" target="_blank"><span class=" iconfont icon-github"></span></a></dd>
-                        <dd><a href="https://twitter.com/Fenco" target="_blank"><span class=" iconfont icon-twitter"></span></a></dd>
-                        <dd><a href="https://stackoverflow.com/users/12349469/han-pengfei" target="_blank"><span class=" iconfont icon-stack-overflow"></span></a></dd>
-                    </dl>
-                </div>
-                <ul>
-                    <li><a href="/">17 <p>文章</p></a></li>
-                    <li><a href="/categories">5 <p>分类</p></a></li>
-                    <li><a href="/tags">11 <p>标签</p></a></li>
-                </ul>
-            </div>
-            
-                
-                
-            
-        </div>
+    <div id="primary">
+        
     </div>
+    
 </div>
+<div id="preview"></div>
 
-
-    </div>
-</div>
     <div id="back-to-top" class="animated fadeIn faster">
         <div class="flow"></div>
         <span class="percentage animated fadeIn faster">0%</span>
